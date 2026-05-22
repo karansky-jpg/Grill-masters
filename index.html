@@ -1212,7 +1212,7 @@
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium">Iced Latte</span>
                                 <span class="font-bold text-[#0B3C20]">₹<span id="price-iced_latte">140</span></span>
-                            </div>
+                            /div>
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium">Irish Cold Coffee</span>
                                 <span class="font-bold text-[#0B3C20]">₹<span id="price-irish_cold_coffee">140</span></span>
@@ -1281,16 +1281,12 @@
 
     </main>
 
-    <!-- Floating Cart Button -->
     <button onclick="openCart()" class="fixed bottom-6 right-6 z-40 bg-[#0B3C20] border-2 border-[#D4AF37] p-4 rounded-full shadow-2xl flex items-center justify-center text-[#FAF6F0] hover:bg-[#0A1D37] transition transform hover:scale-110 active:scale-95 duration-300 group">
         <i data-lucide="shopping-cart" class="w-6 h-6 text-[#D4AF37] group-hover:text-[#FAF6F0] transition"></i>
-        <!-- Item Count Badge -->
         <span id="cart-count-badge" class="absolute -top-1 -right-1 bg-[#FFB302] text-[#0A1D37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#0A1D37] shadow scale-0 transition-transform duration-300">0</span>
     </button>
 
-    <!-- Royal Cart Slider Drawer -->
     <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:max-w-md bg-[#FAF6F0] border-l-4 border-[#D4AF37] shadow-2xl z-50 transform translate-x-full transition-transform duration-500 flex flex-col">
-        <!-- Drawer Header -->
         <div class="bg-[#0A1D37] p-5 border-b border-[#D4AF37] flex justify-between items-center text-[#FAF6F0]">
             <div class="flex items-center gap-2">
                 <i data-lucide="shopping-cart" class="w-5 h-5 text-[#D4AF37]"></i>
@@ -1301,12 +1297,9 @@
             </button>
         </div>
 
-        <!-- Scrollable Drawer Items Content -->
         <div class="flex-grow overflow-y-auto p-5 custom-scroll space-y-4" id="cart-items-container">
-            <!-- Dynamic Cart Items Rendered Here -->
-        </div>
+            </div>
 
-        <!-- Sticky Table details & Calculation Drawer Footer -->
         <div class="bg-[#0A1D37]/5 border-t-2 border-[#D4AF37]/30 p-5 space-y-4 font-sans-alt">
             <div class="space-y-2">
                 <div class="flex gap-3">
@@ -1327,18 +1320,15 @@
                 </div>
             </div>
 
-            <!-- Live Bill Total -->
             <div class="flex justify-between items-center border-t border-[#0B3C20]/10 pt-3">
                 <span class="text-xs uppercase tracking-widest text-[#0A1D37] font-bold">Imperial Feast Total:</span>
                 <span class="text-xl font-bold text-[#0B3C20]" id="cart-total-price">₹0</span>
             </div>
 
-            <!-- Place Order Button -->
             <button onclick="placeOrder()" id="btn-place-order" class="w-full py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFB302] hover:from-[#FFB302] hover:to-[#D4AF37] text-[#0A1D37] font-bold uppercase tracking-widest text-xs rounded-xl shadow-lg transition transform active:scale-95 flex justify-center items-center gap-2">
                 <i data-lucide="crown" class="w-4 h-4"></i> Place Order From Table
             </button>
 
-            <!-- Realtime Order Tracker Status Box -->
             <div id="live-order-tracking" class="border-t border-[#0B3C20]/10 pt-3 hidden">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="relative flex h-2 w-2">
@@ -1348,13 +1338,11 @@
                     <h4 class="text-[10px] uppercase tracking-widest text-[#0B3C20] font-bold">Active Table <span id="tracking-table-id">-</span> Orders</h4>
                 </div>
                 <div id="live-orders-list" class="space-y-2 max-h-32 overflow-y-auto custom-scroll pr-1">
-                    <!-- Real-time orders fetch goes here -->
-                </div>
+                    </div>
             </div>
         </div>
     </div>
 
-    <!-- Multi Option Selector Modal Bottom-Sheet -->
     <div id="option-selector-modal" class="fixed inset-0 bg-[#0A1D37]/80 flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
         <div class="bg-[#FAF6F0] border-t-4 sm:border-2 border-[#D4AF37] p-6 rounded-t-3xl sm:rounded-2xl max-w-md w-full text-center shadow-2xl relative transform translate-y-full sm:translate-y-0 transition-transform duration-300" id="option-modal-content">
             <button onclick="closeOptionModal()" class="absolute top-4 right-4 text-[#0A1D37] hover:text-[#D4AF37]">
@@ -1365,9 +1353,7 @@
             </div>
             <h3 id="option-dish-title" class="font-cinzel text-xl text-[#0A1D37] font-bold tracking-wider mb-2">Select Your Style</h3>
             <p class="font-sans-alt text-xs text-[#0A1D37]/60 mb-6 uppercase tracking-widest">Customize your royal culinary experience</p>
-            <div id="option-buttons-container" class="space-y-3 font-sans-alt mb-2">
-                <!-- Dynamic Option Selection Buttons Go Here -->
-            </div>
+            <div id="option-buttons-container" class="space-y-3 font-sans-alt mb-2"></div>
         </div>
     </div>
 
@@ -1451,55 +1437,50 @@
         </div>
     </div>
 
-    <!-- Dynamic Cart Execution & Firebase Setup Block -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-        // Firebase config
+    <script>
+        // Clean Config Initializer
         const firebaseConfig = {
           apiKey: "AIzaSyCR72F9nFf8awxsBJG11xO7mHNGIdiXcpE",
           authDomain: "menu-5e048.firebaseapp.com",
           projectId: "menu-5e048",
           storageBucket: "menu-5e048.firebasestorage.app",
           messagingSenderId: "429776931303",
-          appId: "1:429776931303:web:688dab79bd2753cc0c9542",
-          measurementId: "G-BPL7CM5DVX"
+          appId: "1:429776931303:web:688dab79bd2753cc0c9542"
         };
 
-        // Init Firebase APIs
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'menu-5e048';
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
 
         let userObj = null;
         let ordersUnsubscribe = null;
 
-        // AUTHENTICATION BEFORE FIRESTORE QUERIES (RULE 3)
-        async function authenticateUser() {
-            try {
-                signInAnonymously(auth);
-            } catch (error) {
-                console.error("Anonymous sign in failed:", error);
-            }
+        // Anonymous Auth Login trigger
+        function authenticateUser() {
+            auth.signInAnonymously()
+                .then(userCredential => {
+                    userObj = userCredential.user;
+                    console.log("Authenticated Table UID:", userObj.uid);
+                    setupRealtimeOrdersListener();
+                })
+                .catch(error => console.error("Anonymous authentication error:", error));
         }
 
-        onAuthStateChanged(auth, (user) => {
+        auth.onAuthStateChanged((user) => {
             if (user) {
                 userObj = user;
-                console.log("Authenticated with table UID:", user.uid);
                 setupRealtimeOrdersListener();
             } else {
                 authenticateUser();
             }
         });
 
-        // Setup real-time listeners according to Rule 1 and Rule 2
+        // Setup Real-time Orders Listener (Optimized Simple Path)
         window.setupRealtimeOrdersListener = function() {
-            if (!userObj) return;
-
             const tableNumInput = document.getElementById('cart-table-number');
             const tableNum = tableNumInput ? tableNumInput.value.trim() : "";
             const trackingBox = document.getElementById('live-order-tracking');
@@ -1514,31 +1495,23 @@
             if (tableIdBadge) tableIdBadge.innerText = tableNum;
             if (trackingBox) trackingBox.classList.remove('hidden');
 
-            // Unsubscribe existing snapshot listener if set
-            if (ordersUnsubscribe) {
-                ordersUnsubscribe();
-            }
+            if (ordersUnsubscribe) ordersUnsubscribe();
 
-            try {
-                // RULE 1: STRICT PATH
-                const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
-
-                // Set up onSnapshot with Error callbacks (Mandatory constraint)
-                ordersUnsubscribe = onSnapshot(collRef, (snapshot) => {
-                    const fetchedOrders = [];
+            // Direct Clean Collection query to map easily with standard Security rules
+            ordersUnsubscribe = db.collection("live_orders")
+                .onSnapshot((snapshot) => {
+                    let fetchedOrders = [];
                     snapshot.forEach(doc => {
                         fetchedOrders.push({ id: doc.id, ...doc.data() });
                     });
 
-                    // RULE 2: NO COMPLEX QUERIES - Sort and Filter in JavaScript Memory!
+                    // JS memory filters for fast render execution
                     const userTableOrders = fetchedOrders
-                        .filter(order => String(order.tableNumber) === String(tableNum))
-                        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                        .filter(order => String(order.tableNumber) === String(tableNum));
 
-                    // Render to the live drawer UI
                     if (orderListEl) {
                         if (userTableOrders.length === 0) {
-                            orderListEl.innerHTML = `<p class="text-[10px] text-slate-500 italic">No current orders for Table ${tableNum}.</p>`;
+                            orderListEl.innerHTML = `<p class="text-[10px] text-slate-500 italic">No active orders for Table ${tableNum}.</p>`;
                         } else {
                             orderListEl.innerHTML = userTableOrders.map(order => {
                                 let badgeColor = "text-amber-600 bg-amber-50 border-amber-200";
@@ -1546,98 +1519,81 @@
                                 if (order.status === "Served") badgeColor = "text-emerald-600 bg-emerald-50 border-emerald-200";
                                 if (order.status === "Completed") badgeColor = "text-slate-600 bg-slate-50 border-slate-200";
 
-                                const orderTime = new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                                 return `
                                     <div class="flex justify-between items-center p-2.5 bg-white rounded-lg border border-slate-200/60 shadow-sm text-xs">
                                         <div class="flex flex-col">
                                             <span class="font-bold text-[#0A1D37]">Order #${order.id.slice(-4).toUpperCase()}</span>
-                                            <span class="text-[9px] text-slate-400 font-sans-alt">${orderTime} • ₹${order.totalPrice}</span>
+                                            <span class="text-[9px] text-slate-400 font-sans-alt">Total Price • ₹${order.grandTotal}</span>
                                         </div>
                                         <span class="px-2 py-0.5 rounded-full border text-[8px] font-bold tracking-wider uppercase ${badgeColor}">
                                             ${order.status}
                                         </span>
-                                    </div>
-                                `;
+                                    </div>`;
                             }).join('');
                         }
                     }
-                }, (error) => {
-                    console.error("Firestore Orders live subscription error:", error);
-                });
-            } catch (err) {
-                console.error("Orders listener error:", err);
-            }
+                }, error => console.error("Snapshot read error:", error));
         };
 
-        // Firebase Place Order execution
+        // Complete Checkout and Save Order (Simplified Secure Payload)
         window.executeOrderPlacement = async function(tableNum, cartItems, grandTotal, notes) {
             if (!userObj) {
-                showToast("Connection issue. Retrying login...");
-                await authenticateUser();
+                showToast("Re-authenticating network connection...");
+                authenticateUser();
                 return;
             }
 
             const placeOrderBtn = document.getElementById('btn-place-order');
             placeOrderBtn.disabled = true;
-            placeOrderBtn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin text-[#0A1D37]"></i> Authenticating Order...`;
+            placeOrderBtn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin text-[#0A1D37]"></i> Compiling Feast...`;
             lucide.createIcons();
 
-            try {
-                // Prepare Payload
-                const payload = {
-                    tableNumber: tableNum,
-                    items: cartItems.map(item => ({
-                        name: item.name,
-                        option: item.option || "Standard",
-                        price: Number(item.price),
-                        quantity: Number(item.quantity),
-                        itemTotal: Number(item.price * item.quantity)
-                    })),
-                    totalPrice: grandTotal,
-                    status: "Pending", // States: Pending -> Preparing -> Served -> Completed
-                    createdAt: new Date().toISOString(),
-                    specialInstructions: notes,
-                    userId: userObj.uid
-                };
+            const itemsPayload = cartItems.map(item => ({
+                name: item.name,
+                option: item.option || "Standard",
+                price: Number(item.price),
+                qty: Number(item.quantity)
+            }));
 
-                // RULE 1: STRICT PATH
-                const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
-                const docRef = await addDoc(collRef, payload);
+            const orderPayload = {
+                tableNumber: tableNum,
+                items: itemsPayload,
+                grandTotal: grandTotal,
+                status: "Pending",
+                specialInstructions: notes,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
 
-                // Play satisfying royal completion ASMR
-                playASMRFlipSound();
-
-                // Success visual state display inside drawer
-                const container = document.getElementById('cart-items-container');
-                container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center text-center py-10 px-4 space-y-4">
-                        <div class="bg-emerald-50 border-2 border-emerald-500 text-emerald-600 p-4 rounded-full animate-bounce">
-                            <i data-lucide="check" class="w-12 h-12"></i>
-                        </div>
-                        <h3 class="font-cinzel text-lg text-[#0A1D37] font-bold tracking-wider">Feast Confirmed!</h3>
-                        <p class="font-sans-alt text-xs text-slate-500 max-w-xs leading-relaxed">
-                            Your royal order <span class="font-bold text-[#0B3C20]">#${docRef.id.slice(-5).toUpperCase()}</span> has been dispatched to our royal grill masters at Table <span class="font-bold">${tableNum}</span>.
-                        </p>
-                        <div class="w-16 h-[1px] bg-[#D4AF37]"></div>
-                        <p class="text-[10px] text-slate-400 font-sans-alt">Keep this tab open to track live progress of your kitchen status below.</p>
-                        <button onclick="resetCartUI()" class="mt-4 px-6 py-2 bg-[#0B3C20] text-[#FAF6F0] rounded-xl font-semibold uppercase tracking-wider text-[10px] hover:bg-[#0B3C20]/90 transition">
-                            Add More Items
-                        </button>
-                    </div>
-                `;
-                lucide.createIcons();
-
-                // Clear current cart
-                window.clearCart();
-                setupRealtimeOrdersListener();
-            } catch (err) {
-                console.error("Order submission failure:", err);
-                showToast("Server could not register order. Please try again.");
-            } finally {
-                placeOrderBtn.disabled = false;
-                placeOrderBtn.innerHTML = `<i data-lucide="crown" class="w-4 h-4"></i> Place Order From Table`;
-                lucide.createIcons();
-            }
+            db.collection("live_orders").add(orderPayload)
+                .then((docRef) => {
+                    playASMRFlipSound();
+                    const container = document.getElementById('cart-items-container');
+                    container.innerHTML = `
+                        <div class="flex flex-col items-center justify-center text-center py-10 px-4 space-y-4">
+                            <div class="bg-emerald-50 border-2 border-emerald-500 text-emerald-600 p-4 rounded-full animate-bounce">
+                                <i data-lucide="check" class="w-12 h-12"></i>
+                            </div>
+                            <h3 class="font-cinzel text-lg text-[#0A1D37] font-bold tracking-wider">Feast Confirmed!</h3>
+                            <p class="font-sans-alt text-xs text-slate-500 max-w-xs leading-relaxed">
+                                Your royal order <span class="font-bold text-[#0B3C20]">#${docRef.id.slice(-5).toUpperCase()}</span> has been dispatched live to the kitchen.
+                            </p>
+                            <button onclick="resetCartUI()" class="mt-4 px-6 py-2 bg-[#0B3C20] text-[#FAF6F0] rounded-xl font-semibold uppercase tracking-wider text-[10px]">
+                                Add More Items
+                            </button>
+                        </div>`;
+                    lucide.createIcons();
+                    window.clearCart();
+                    setupRealtimeOrdersListener();
+                })
+                .catch(err => {
+                    console.error("Write error detail:", err);
+                    showToast("Network packet drop. Try placing order again.");
+                })
+                .finally(() => {
+                    placeOrderBtn.disabled = false;
+                    placeOrderBtn.innerHTML = `<i data-lucide="crown" class="w-4 h-4"></i> Place Order From Table`;
+                    lucide.createIcons();
+                });
         };
     </script>
 
@@ -1648,24 +1604,15 @@
         let selectedRating = 5;
         let isAudioOn = true;
 
-        // Unified Cart Array state
         let cart = [];
-
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // ----------------- CART & TOUCH TAP ACTION LOGICS -----------------
-        
-        // Setup menu items dynamically on DOM load
         function initInteractiveMenu() {
-            // Find all item list container cards
             const listRows = document.querySelectorAll('div.flex.justify-between.items-center');
             listRows.forEach(row => {
                 const prices = row.querySelectorAll('span[id^="price-"]');
                 if (prices.length > 0) {
-                    // Turn rows into highly interactive touch highlights
                     row.classList.add('cursor-pointer', 'hover:bg-[#0B3C20]/5', 'active:scale-[0.98]', 'transition-all', 'duration-150', 'px-2', 'py-1.5', 'rounded-lg');
-                    
                     row.addEventListener('click', (e) => {
                         e.stopPropagation();
                         handleDishRowClick(row);
@@ -1674,28 +1621,21 @@
             });
         }
 
-        // Dynamic click handling
         function handleDishRowClick(row) {
-            // Find Name elements
             const nameEl = row.querySelector('span.font-medium') || row.querySelector('span.font-bold') || row.firstElementChild;
             if (!nameEl) return;
             const dishName = nameEl.textContent.replace(/★/g, '').trim();
-
-            // Find prices matching our schema inside this specific row
             const priceSpans = row.querySelectorAll('span[id^="price-"]');
             
             if (priceSpans.length === 1) {
-                // Add single item immediately
                 const span = priceSpans[0];
                 const cleanPrice = parseFloat(span.innerText);
                 addToCart(dishName, cleanPrice, "Standard", span.id);
             } else if (priceSpans.length > 1) {
-                // Prompt with custom Royal bottom-sheet dialog drawer
                 openOptionSelector(dishName, priceSpans);
             }
         }
 
-        // Parse option tags dynamically from price ID schemas
         function parseOptionType(priceId) {
             if (priceId.endsWith('_regular') || priceId.endsWith('_reg')) return "Regular";
             if (priceId.endsWith('_medium')) return "Medium";
@@ -1706,7 +1646,6 @@
             return "Standard";
         }
 
-        // Show royal option selectors
         function openOptionSelector(dishName, priceSpans) {
             const modal = document.getElementById('option-selector-modal');
             const content = document.getElementById('option-modal-content');
@@ -1722,10 +1661,7 @@
                 
                 const btn = document.createElement('button');
                 btn.className = "w-full py-3 px-5 bg-white hover:bg-[#0B3C20] hover:text-white border-2 border-[#D4AF37]/50 rounded-xl flex justify-between items-center font-semibold text-xs tracking-wider transition-all duration-200 text-[#0A1D37] shadow-sm";
-                btn.innerHTML = `
-                    <span>${optionLabel}</span>
-                    <span class="font-sans-alt text-sm">₹${price}</span>
-                `;
+                btn.innerHTML = `<span>${optionLabel}</span><span class="font-sans-alt text-sm">₹${price}</span>`;
                 btn.onclick = () => {
                     addToCart(dishName, price, optionLabel, span.id);
                     closeOptionSelector();
@@ -1733,26 +1669,17 @@
                 container.appendChild(btn);
             });
 
-            // Trigger Animation
             modal.classList.remove('opacity-0', 'pointer-events-none');
             content.classList.remove('translate-y-full');
-            if (window.innerWidth < 640) {
-                content.classList.add('translate-y-0');
-            }
+            if (window.innerWidth < 640) content.classList.add('translate-y-0');
         }
 
         function closeOptionSelector() {
-            const modal = document.getElementById('option-selector-modal');
-            const content = document.getElementById('option-modal-content');
-            
-            content.classList.add('translate-y-full');
-            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('option-modal-content').classList.add('translate-y-full');
+            document.getElementById('option-selector-modal').classList.add('opacity-0', 'pointer-events-none');
         }
-
-        // Global exposing for close button
         window.closeOptionModal = closeOptionSelector;
 
-        // Custom notification system (No annoying alert() dialogs!)
         function showToast(message) {
             const toast = document.createElement('div');
             toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50 bg-[#0B3C20] border-2 border-[#D4AF37] text-[#FAF6F0] px-6 py-3 rounded-full shadow-2xl flex items-center gap-2.5 font-sans-alt text-[10px] tracking-wider uppercase font-bold transition-all duration-500 opacity-0 translate-y-4';
@@ -1764,18 +1691,14 @@
                 toast.classList.remove('opacity-0', 'translate-y-4');
                 toast.classList.add('translate-y-0');
             }, 50);
-
             setTimeout(() => {
                 toast.classList.add('opacity-0', 'translate-y-4');
                 setTimeout(() => toast.remove(), 500);
             }, 2300);
         }
 
-        // Cart Actions
         function addToCart(name, price, option, elementId) {
-            // Check if exact variation matches
             const existingIndex = cart.findIndex(item => item.elementId === elementId);
-            
             if (existingIndex > -1) {
                 cart[existingIndex].quantity += 1;
             } else {
@@ -1788,11 +1711,7 @@
                     elementId: elementId
                 });
             }
-
-            // Play satisfying ASMR feedback sound on tap!
             playASMRFlipSound();
-
-            // Refresh UI components
             renderCartItems();
             updateCartBadge();
             showToast(`Added ${name} (${option}) to Cart!`);
@@ -1802,16 +1721,13 @@
             const index = cart.findIndex(item => item.id === cartId);
             if (index > -1) {
                 cart[index].quantity += delta;
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
+                if (cart[index].quantity <= 0) cart.splice(index, 1);
                 renderCartItems();
                 updateCartBadge();
             }
         }
 
         function getCartTotal() {
-            // Live-calculate dynamically by referencing active DOM values!
             return cart.reduce((total, item) => {
                 const domEl = document.getElementById(item.elementId);
                 const currentPrice = domEl ? parseFloat(domEl.innerText) : item.price;
@@ -1822,7 +1738,6 @@
         function updateCartBadge() {
             const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
             const badge = document.getElementById('cart-count-badge');
-            
             if (totalCount > 0) {
                 badge.innerText = totalCount;
                 badge.classList.remove('scale-0');
@@ -1842,22 +1757,16 @@
                     <div class="h-full flex flex-col items-center justify-center text-slate-400 py-12 space-y-3">
                         <i data-lucide="shopping-bag" class="w-12 h-12 text-[#D4AF37]/50"></i>
                         <p class="font-sans-alt text-xs uppercase tracking-widest text-[#0A1D37]/60 font-semibold">Your chamber is empty</p>
-                        <p class="text-[11px] italic font-serif">Tap dishes from the menu to add</p>
-                    </div>
-                `;
+                    </div>`;
                 totalDisplay.innerText = "₹0";
                 lucide.createIcons();
                 return;
             }
 
             let html = `<div class="space-y-3 font-sans-alt">`;
-            
             cart.forEach(item => {
-                // Fetch dynamic live sheet prices in real-time
                 const domEl = document.getElementById(item.elementId);
                 const livePrice = domEl ? parseFloat(domEl.innerText) : item.price;
-                const lineTotal = livePrice * item.quantity;
-
                 html += `
                     <div class="bg-white p-3.5 rounded-xl border border-[#D4AF37]/20 shadow-sm flex justify-between items-center gap-3">
                         <div class="flex-grow">
@@ -1866,136 +1775,78 @@
                             <p class="text-xs text-slate-500 mt-1">₹${livePrice} each</p>
                         </div>
                         <div class="flex flex-col items-end gap-2 shrink-0">
-                            <span class="font-bold text-sm text-[#0B3C20]">₹${lineTotal}</span>
+                            <span class="font-bold text-sm text-[#0B3C20]">₹${livePrice * item.quantity}</span>
                             <div class="flex items-center gap-1.5 bg-[#FAF6F0] rounded-lg border border-slate-200 p-1">
-                                <button onclick="updateCartQuantity('${item.id}', -1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 hover:bg-[#0B3C20] hover:text-white transition shadow-sm">
-                                    <i data-lucide="minus" class="w-3 h-3"></i>
-                                </button>
+                                <button onclick="updateCartQuantity('${item.id}', -1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="minus" class="w-3 h-3"></i></button>
                                 <span class="text-xs w-4 text-center font-bold text-[#0A1D37]">${item.quantity}</span>
-                                <button onclick="updateCartQuantity('${item.id}', 1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 hover:bg-[#0B3C20] hover:text-white transition shadow-sm">
-                                    <i data-lucide="plus" class="w-3 h-3"></i>
-                                </button>
+                                <button onclick="updateCartQuantity('${item.id}', 1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="plus" class="w-3 h-3"></i></button>
                             </div>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
-
             html += `</div>`;
             container.innerHTML = html;
-            
-            // Render Live calculated sum total
             totalDisplay.innerText = "₹" + getCartTotal();
             lucide.createIcons();
         }
 
-        // Toggle cart drawer sliding
         function openCart() {
             document.getElementById('cart-drawer').classList.remove('translate-x-full');
             renderCartItems();
         }
+        function closeCart() { document.getElementById('cart-drawer').classList.add('translate-x-full'); }
+        function handleTableNumChange() { if (typeof setupRealtimeOrdersListener === 'function') setupRealtimeOrdersListener(); }
+        window.clearCart = function() { cart = []; updateCartBadge(); };
+        window.resetCartUI = function() { renderCartItems(); };
 
-        function closeCart() {
-            document.getElementById('cart-drawer').classList.add('translate-x-full');
-        }
-
-        function handleTableNumChange() {
-            // Trigger orders listener refresh in real-time
-            if (typeof setupRealtimeOrdersListener === 'function') {
-                setupRealtimeOrdersListener();
-            }
-        }
-
-        // Clean slate reset
-        window.clearCart = function() {
-            cart = [];
-            updateCartBadge();
-        };
-
-        // Reset display container UI inside the drawer
-        window.resetCartUI = function() {
-            renderCartItems();
-        };
-
-        // Complete checkout placement
         function placeOrder() {
             const tableInput = document.getElementById('cart-table-number');
             const instructionsInput = document.getElementById('cart-special-instructions');
-            
-            if (!tableInput || !tableInput.value.trim()) {
-                showToast("Please specify table number!");
-                tableInput.focus();
-                return;
-            }
-
-            if (cart.length === 0) {
-                showToast("Your cart chamber is empty!");
-                return;
-            }
+            if (!tableInput || !tableInput.value.trim()) { showToast("Please specify table number!"); tableInput.focus(); return; }
+            if (cart.length === 0) { showToast("Your cart chamber is empty!"); return; }
 
             const tableNum = tableInput.value.trim();
             const notes = instructionsInput ? instructionsInput.value.trim() : "";
             const grandTotal = getCartTotal();
 
-            // Run Firebase execution
             if (typeof window.executeOrderPlacement === 'function') {
                 window.executeOrderPlacement(tableNum, cart, grandTotal, notes);
-            } else {
-                showToast("Orders database loading. Try again in a second...");
             }
         }
 
-
-        // ----------------- REAL-TIME GOOGLE SHEET FETCH SYSTEM -----------------
         async function fetchMenuPrices() {
             const sheetUrl = "https://docs.google.com/spreadsheets/d/1ooAhddRANFXqv7S-JLif2CYLwusAYAwfp9CpxsfHlj4/gviz/tq?tqx=out:csv";
-
             try {
                 const response = await fetch(sheetUrl);
                 const data = await response.text();
-                
                 const rows = data.split("\n");
-
                 rows.forEach(row => {
                     const cleanRow = row.replace(/"/g, "");
                     const columns = cleanRow.split(",");
-
                     if (columns.length >= 2) {
                         const itemId = columns[0].trim();  
                         const price = columns[1].trim();   
-
                         const element = document.getElementById(`price-${itemId}`);
-                        if (element && price && !isNaN(price)) {
-                            element.innerText = price;
-                        }
+                        if (element && price && !isNaN(price)) element.innerText = price;
                     }
                 });
-                console.log("Grill Masters Menu synced with Live Google Sheet successfully!");
-                // Rerender cart items so if Google Sheet live-updates active cart lines recalculate
                 renderCartItems();
-            } catch (error) {
-                console.error("Error syncing prices from Google Sheet:", error);
-            }
+            } catch (error) { console.error("Error syncing prices:", error); }
         }
 
-        // ----------------- ASMR SOUND SYNTHESIZER (No assets required!) -----------------
         function playASMRFlipSound() {
             if (!isAudioOn) return;
             try {
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
                 if (!AudioContext) return;
                 const ctx = new AudioContext();
-
                 const bufferSize = ctx.sampleRate * 0.35; 
                 const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
                 const data = buffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
+                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
 
                 const noiseNode = ctx.createBufferSource();
                 noiseNode.buffer = buffer;
-
                 const hpFilter = ctx.createBiquadFilter();
                 hpFilter.type = 'highpass';
                 hpFilter.frequency.setValueAtTime(2000, ctx.currentTime);
@@ -2015,19 +1866,14 @@
                 hpFilter.connect(bpFilter);
                 bpFilter.connect(gainNode);
                 gainNode.connect(ctx.destination);
-
                 noiseNode.start();
-            } catch (error) {
-                console.log("Audio synthesis bypassed due to user gesture restriction or browser block.");
-            }
+            } catch (error) {}
         }
 
-        // Toggle Sound State
         function toggleAudio() {
             isAudioOn = !isAudioOn;
             const textEl = document.getElementById('sound-text');
             const wrapperEl = document.getElementById('sound-icon-wrapper');
-            
             if (isAudioOn) {
                 textEl.innerText = "ASMR Sound: ON";
                 wrapperEl.innerHTML = '<i data-lucide="volume-2" class="w-4 h-4 text-[#0B3C20]"></i>';
@@ -2039,25 +1885,15 @@
             lucide.createIcons();
         }
 
-        // ----------------- PAGE NAVIGATION AND INTERACTIVE SWIPING -----------------
         function updatePageDisplay() {
             for (let i = 1; i <= totalPages; i++) {
                 const pageElement = document.getElementById(`page-${i}`);
                 if (!pageElement) continue;
-
-                // Clear classes
                 pageElement.classList.remove('active', 'flipped', 'incoming');
-
-                if (i < currentPage) {
-                    pageElement.classList.add('flipped');
-                } else if (i === currentPage) {
-                    pageElement.classList.add('active');
-                } else {
-                    pageElement.classList.add('incoming');
-                }
+                if (i < currentPage) pageElement.classList.add('flipped');
+                else if (i === currentPage) pageElement.classList.add('active');
+                else pageElement.classList.add('incoming');
             }
-
-            // Update Pagination Dots
             const dots = document.querySelectorAll('.page-dot');
             dots.forEach((dot, index) => {
                 if (index + 1 === currentPage) {
@@ -2070,133 +1906,35 @@
             });
         }
 
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                playASMRFlipSound();
-                updatePageDisplay();
-            }
-        }
+        function nextPage() { if (currentPage < totalPages) { currentPage++; playASMRFlipSound(); updatePageDisplay(); } }
+        function prevPage() { if (currentPage > 1) { currentPage--; playASMRFlipSound(); updatePageDisplay(); } }
+        function goToPage(pageNo) { if (pageNo !== currentPage) { currentPage = pageNo; playASMRFlipSound(); updatePageDisplay(); } }
 
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                playASMRFlipSound();
-                updatePageDisplay();
-            }
-        }
-
-        function goToPage(pageNo) {
-            if (pageNo >= 1 && pageNo <= totalPages && pageNo !== currentPage) {
-                currentPage = pageNo;
-                playASMRFlipSound();
-                updatePageDisplay();
-            }
-        }
-
-        // Gesture and Swipe Control Setup
         let touchstartX = 0;
-        let touchendX = 0;
-        let touchstartY = 0;
-        let touchendY = 0;
-
         const swipeContainer = document.querySelector('.book-container');
-
-        swipeContainer.addEventListener('touchstart', (e) => {
-            touchstartX = e.changedTouches[0].screenX;
-            touchstartY = e.changedTouches[0].screenY;
-        }, { passive: true });
-
+        swipeContainer.addEventListener('touchstart', (e) => touchstartX = e.changedTouches[0].screenX, { passive: true });
         swipeContainer.addEventListener('touchend', (e) => {
-            touchendX = e.changedTouches[0].screenX;
-            touchendY = e.changedTouches[0].screenY;
-            handleSwipeGesture();
+            const diffX = e.changedTouches[0].screenX - touchstartX;
+            if (Math.abs(diffX) > 50) diffX < 0 ? nextPage() : prevPage();
         }, { passive: true });
 
-        function handleSwipeGesture() {
-            const diffX = touchendX - touchstartX;
-            const diffY = touchendY - touchstartY;
-
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (Math.abs(diffX) > 45) { // minimum distance
-                    if (diffX < 0) {
-                        nextPage();
-                    } else {
-                        prevPage();
-                    }
-                }
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowRight") {
-                nextPage();
-            } else if (e.key === "ArrowLeft") {
-                prevPage();
-            }
-        });
-
-        // ----------------- ROYAL RATING AND FEEDBACK DISPATCHER -----------------
         function setRating(rating) {
             selectedRating = rating;
-            const starButtons = document.querySelectorAll('.star-btn');
-            starButtons.forEach((btn, index) => {
-                if (index < rating) {
-                    btn.classList.add('text-[#FFB302]');
-                    btn.classList.remove('text-[#FAF6F0]/40');
-                } else {
-                    btn.classList.add('text-[#FAF6F0]/40');
-                    btn.classList.remove('text-[#FFB302]');
-                }
+            document.querySelectorAll('.star-btn').forEach((btn, index) => {
+                if (index < rating) { btn.classList.add('text-[#FFB302]'); btn.classList.remove('text-[#FAF6F0]/40'); }
+                else { btn.classList.add('text-[#FAF6F0]/40'); btn.classList.remove('text-[#FFB302]'); }
             });
         }
 
-        setRating(5);
-
         function handleFeedback(event) {
             event.preventDefault();
-            
-            const name = document.getElementById('fb-name').value;
-            const contact = document.getElementById('fb-contact').value;
-            const message = document.getElementById('fb-message').value;
-            const ratingStars = "★".repeat(selectedRating) + "☆".repeat(5 - selectedRating);
-
-            const emailSubject = `Imperial Feedback for Grill Masters from ${name}`;
-            const emailBody = `My Lord / Admin,\n\nI have presented my culinary testimony for Grill Masters:\n\n` + 
-                              `Guest Name: ${name}\n` +
-                              `Contact Info: ${contact}\n` +
-                              `Imperial Rating: ${ratingStars} (${selectedRating}/5 Stars)\n\n` +
-                              `Witness Testimony (Message):\n"${message}"\n\n` +
-                              `With Royal Regards,\n${name}`;
-
-            const mailtoUrl = `mailto:karrranverma@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            
             const modal = document.getElementById('status-modal');
             modal.classList.remove('opacity-0', 'pointer-events-none');
-            
-            setTimeout(() => {
-                window.location.href = mailtoUrl;
-            }, 800);
+            setTimeout(() => window.location.href = `mailto:karrranverma@gmail.com?subject=GrillMastersFeedback`, 800);
         }
+        function closeModal() { document.getElementById('status-modal').classList.add('opacity-0', 'pointer-events-none'); }
 
-        function closeModal() {
-            const modal = document.getElementById('status-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            
-            document.getElementById('fb-name').value = '';
-            document.getElementById('fb-contact').value = '';
-            document.getElementById('fb-message').value = '';
-            setRating(5);
-        }
-
-        // Initial setup and Live Google Sheet fetch trigger on window load
-        window.onload = () => {
-            updatePageDisplay();
-            initInteractiveMenu();
-            fetchMenuPrices(); // Sheet connect sync code run
-        };
+        window.onload = () => { updatePageDisplay(); initInteractiveMenu(); fetchMenuPrices(); };
     </script>
 </body>
 </html>
-
-```
