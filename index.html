@@ -1,4 +1,4 @@
-GRILL MASTERS HYGENIC MENU!
+GRILL MASTERS DIGITAL MENU
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,43 +45,42 @@ GRILL MASTERS HYGENIC MENU!
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* 3D Flip Book Styles */
+        /* 3D Book Slide Container */
         .book-container {
             perspective: 1500px;
             position: relative;
         }
 
+        /* 2D Slide Physics for All Mobile Devices */
         .page-card {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease, z-index 0s;
-            transform-origin: left center;
-            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
             opacity: 0;
             pointer-events: none;
             z-index: 10;
+            transform: translateX(100%);
         }
 
         .page-card.active {
             opacity: 1;
             pointer-events: auto;
-            transform: rotateY(0deg) scale(1);
+            transform: translateX(0);
             z-index: 20;
         }
 
-        /* Page Flip Animation Classes */
         .page-card.flipped {
-            transform: rotateY(-180deg) scale(0.95);
+            transform: translateX(-100%);
             opacity: 0;
-            z-index: 5;
+            z-index: 10;
             pointer-events: none;
         }
 
         .page-card.incoming {
-            transform: rotateY(30deg) scale(0.95);
+            transform: translateX(100%);
             opacity: 0;
             z-index: 10;
             pointer-events: none;
@@ -123,8 +122,7 @@ GRILL MASTERS HYGENIC MENU!
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-    <!-- Top Luxury Banner Header -->
-    <header class="w-full text-center py-3 bg-[#0A1D37] text-[#FAF6F0] border-b border-[#D4AF37] z-30 shadow-md">
+    <header class="w-full text-center py-3 bg-[#0A1D37] text-[#FAF6F0] border-b border-[#D4AF37] z-50 shadow-md">
         <p class="font-sans-alt text-xs tracking-[0.25em] uppercase font-light text-[#FAF6F0]/80">
             Created By <span class="text-[#D4AF37] font-medium">Karan Digital Menu Agency</span>
         </p>
@@ -132,7 +130,6 @@ GRILL MASTERS HYGENIC MENU!
 
     <main class="flex-grow flex flex-col items-center justify-start py-6 px-4 md:px-8 max-w-6xl w-full mx-auto relative">
         
-        <!-- Navigation Buttons & Voice ASMR Switches -->
         <div class="w-full max-w-4xl flex justify-between items-center mb-4 z-40 px-2">
             <button onclick="prevPage()" class="flex items-center gap-1 font-cinzel text-xs text-[#0A1D37] hover:text-[#D4AF37] transition duration-300">
                 <i data-lucide="chevron-left" class="w-4 h-4 text-[#D4AF37]"></i> Prev
@@ -152,10 +149,9 @@ GRILL MASTERS HYGENIC MENU!
             </button>
         </div>
 
-        <!-- 3D Flipping Book Main Shell -->
         <div class="w-full max-w-4xl h-[70vh] md:h-[75vh] book-container bg-[#FAF6F0] rounded-2xl shadow-2xl border-4 border-[#0A1D37] relative overflow-hidden">
             
-            <!-- Page 1: Welcome Cover Page -->
+            <!-- Page 1: Welcome/Cover -->
             <div id="page-1" class="page-card active bg-gradient-to-br from-[#0A1D37] via-[#0D2444] to-[#0A1D37] p-8 flex flex-col justify-between items-center text-center">
                 <div class="ornament-corner ornament-tl"></div>
                 <div class="ornament-corner ornament-tr"></div>
@@ -220,21 +216,21 @@ GRILL MASTERS HYGENIC MENU!
                             </div>
                         </div>
                         <div class="bg-[#FAF6F0] p-4 text-[#0A1D37] space-y-3 font-sans-alt">
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base">Cheese Margherita</span>
                                 <div class="flex gap-8 text-sm font-semibold">
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-cheese_margherita_regular">170</span></span>
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-cheese_margherita_medium">310</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base">Veggie Garden</span>
                                 <div class="flex gap-8 text-sm font-semibold">
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-veggie_garden_regular">170</span></span>
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-veggie_garden_medium">310</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base flex items-center gap-1">
                                     Sweet Corn Treat <span class="text-[#FFB302]">★</span>
                                 </span>
@@ -243,14 +239,14 @@ GRILL MASTERS HYGENIC MENU!
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-sweet_corn_treat_medium">310</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base">Farm Fresh</span>
                                 <div class="flex gap-8 text-sm font-semibold">
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-farm_fresh_regular">200</span></span>
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-farm_fresh_medium">330</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base flex items-center gap-1">
                                     Paneer Bingo <span class="text-[#FFB302]">★</span>
                                 </span>
@@ -259,14 +255,14 @@ GRILL MASTERS HYGENIC MENU!
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-paneer_bingo_medium">330</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base">Paneer Tikka</span>
                                 <div class="flex gap-8 text-sm font-semibold">
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-paneer_tikka_pizza_regular">240</span></span>
                                     <span class="w-8 text-center text-[#0B3C20]">₹<span id="price-paneer_tikka_pizza_medium">390</span></span>
                                 </div>
                             </div>
-                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1">
+                            <div class="flex justify-between items-center border-b border-[#0B3C20]/10 pb-1 hover:bg-[#0B3C20]/5 px-1 rounded transition">
                                 <span class="font-medium text-sm md:text-base flex items-center gap-1">
                                     Punjabi Paneer Pizza <span class="text-[#FFB302]">★</span>
                                 </span>
@@ -1278,8 +1274,7 @@ GRILL MASTERS HYGENIC MENU!
 
         </div>
 
-        <!-- Dynamic Book Slider Navigation Progress Dots -->
-        <div class="mt-6 flex gap-3 items-center z-20">
+        <div class="mt-6 flex gap-3 items-center z-40">
             <button onclick="goToPage(1)" class="page-dot w-3 h-3 rounded-full bg-[#0A1D37] transition duration-300 border border-[#D4AF37]" title="Page 1"></button>
             <button onclick="goToPage(2)" class="page-dot w-3 h-3 rounded-full bg-slate-300 transition duration-300 border border-[#D4AF37]" title="Page 2"></button>
             <button onclick="goToPage(3)" class="page-dot w-3 h-3 rounded-full bg-slate-300 transition duration-300 border border-[#D4AF37]" title="Page 3"></button>
@@ -1295,14 +1290,16 @@ GRILL MASTERS HYGENIC MENU!
 
     </main>
 
-    <!-- Floating Basket Launcher -->
+    <!-- Floating Cart Button -->
     <button onclick="openCart()" class="fixed bottom-6 right-6 z-40 bg-[#0B3C20] border-2 border-[#D4AF37] p-4 rounded-full shadow-2xl flex items-center justify-center text-[#FAF6F0] hover:bg-[#0A1D37] transition transform hover:scale-110 active:scale-95 duration-300 group">
         <i data-lucide="shopping-cart" class="w-6 h-6 text-[#D4AF37] group-hover:text-[#FAF6F0] transition"></i>
-        <span id="cart-count-badge" class="absolute -top-1 -right-1 bg-[#FFB302] text-[#0A1D37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#0A1D37] scale-0 transition-transform duration-300">0</span>
+        <!-- Item Count Badge -->
+        <span id="cart-count-badge" class="absolute -top-1 -right-1 bg-[#FFB302] text-[#0A1D37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#0A1D37] shadow scale-0 transition-transform duration-300">0</span>
     </button>
 
-    <!-- Slide-out Cart Drawer -->
+    <!-- Royal Cart Slider Drawer -->
     <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:max-w-md bg-[#FAF6F0] border-l-4 border-[#D4AF37] shadow-2xl z-50 transform translate-x-full transition-transform duration-500 flex flex-col">
+        <!-- Drawer Header -->
         <div class="bg-[#0A1D37] p-5 border-b border-[#D4AF37] flex justify-between items-center text-[#FAF6F0]">
             <div class="flex items-center gap-2">
                 <i data-lucide="shopping-cart" class="w-5 h-5 text-[#D4AF37]"></i>
@@ -1313,59 +1310,61 @@ GRILL MASTERS HYGENIC MENU!
             </button>
         </div>
 
-        <!-- Cart Items dynamic container -->
+        <!-- Scrollable Drawer Items Content -->
         <div class="flex-grow overflow-y-auto p-5 custom-scroll space-y-4" id="cart-items-container">
-            <!-- items stacked live by scripts -->
+            <!-- Dynamic Cart Items Rendered Here -->
         </div>
 
-        <div class="bg-[#0A1D37]/5 border-t-2 border-[#D4AF37]/30 p-5 space-y-4 font-sans-alt">
+        <!-- Sticky Table details & Calculation Drawer Footer -->
+        <div class="bg-[#0A1D37]/5 border-t-2 border-[#D4AF37]/30 p-5 space-y-4 font-sans-alt text-slate-900">
             <div class="space-y-2">
                 <div class="flex gap-3">
                     <div class="w-1/3">
-                        <label class="block text-[9px] uppercase tracking-widest text-[#0B3C20] font-bold mb-1">Table Number *</label>
+                        <label class="block text-[9px] uppercase tracking-widest text-[#0B3C20] font-bold mb-1">Table Number</label>
                         <div class="flex items-center bg-white border-2 border-[#D4AF37]/40 rounded-xl px-3 py-2 focus-within:border-[#0B3C20] transition">
-                            <input type="number" id="cart-table-number" min="1" placeholder="No." oninput="handleTableNumChange()"
-                                   class="bg-transparent border-none outline-none w-full text-sm text-[#0A1D37] font-bold">
+                            <input type="number" id="cart-table-number" min="1" placeholder="Table" oninput="handleTableNumChange()"
+                                   class="bg-transparent border-none outline-none w-full text-sm text-[#0A1D37] font-semibold">
                         </div>
                     </div>
                     <div class="w-2/3">
-                        <label class="block text-[9px] uppercase tracking-widest text-[#0B3C20] font-bold mb-1">Cooking Instructions</label>
+                        <label class="block text-[9px] uppercase tracking-widest text-[#0B3C20] font-bold mb-1">Special Instructions</label>
                         <div class="flex items-center bg-white border-2 border-[#D4AF37]/40 rounded-xl px-3 py-2 focus-within:border-[#0B3C20] transition">
-                            <input type="text" id="cart-special-instructions" placeholder="e.g. Less spicy, Extra cheese"
+                            <input type="text" id="cart-special-instructions" placeholder="e.g., extra spicy, no onion"
                                    class="bg-transparent border-none outline-none w-full text-xs text-[#0A1D37]">
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Live Bill Total -->
             <div class="flex justify-between items-center border-t border-[#0B3C20]/10 pt-3">
-                <span class="text-xs uppercase tracking-widest text-[#0A1D37] font-bold">FEAST TOTAL (NET):</span>
+                <span class="text-xs uppercase tracking-widest text-[#0A1D37] font-bold">Imperial Feast Total:</span>
                 <span class="text-xl font-bold text-[#0B3C20]" id="cart-total-price">₹0</span>
             </div>
 
-            <!-- Send to Firebase Trigger -->
+            <!-- Place Order Button -->
             <button onclick="placeOrder()" id="btn-place-order" class="w-full py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFB302] hover:from-[#FFB302] hover:to-[#D4AF37] text-[#0A1D37] font-bold uppercase tracking-widest text-xs rounded-xl shadow-lg transition transform active:scale-95 flex justify-center items-center gap-2">
-                <i data-lucide="crown" class="w-4 h-4"></i> Send Order to Kitchen
+                <i data-lucide="crown" class="w-4 h-4"></i> Place Order From Table
             </button>
 
-            <!-- Real-time Status Tracker Segment -->
+            <!-- Realtime Order Tracker Status Box -->
             <div id="live-order-tracking" class="border-t border-[#0B3C20]/10 pt-3 hidden">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                    <h4 class="text-[10px] uppercase tracking-widest text-[#0B3C20] font-bold">Active Table <span id="tracking-table-id">-</span> Orders Progress</h4>
+                    <h4 class="text-[10px] uppercase tracking-widest text-[#0B3C20] font-bold">Active Table <span id="tracking-table-id">-</span> Orders</h4>
                 </div>
                 <div id="live-orders-list" class="space-y-2 max-h-32 overflow-y-auto custom-scroll pr-1">
-                    <!-- Progress streams synced dynamically -->
+                    <!-- Real-time orders fetch goes here -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Multi Option Selector Modal Bottom Sheet -->
-    <div id="option-selector-modal" class="fixed inset-0 bg-[#0A1D37]/85 flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Multi Option Selector Modal Bottom-Sheet -->
+    <div id="option-selector-modal" class="fixed inset-0 bg-[#0A1D37]/80 flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
         <div class="bg-[#FAF6F0] border-t-4 sm:border-2 border-[#D4AF37] p-6 rounded-t-3xl sm:rounded-2xl max-w-md w-full text-center shadow-2xl relative transform translate-y-full sm:translate-y-0 transition-transform duration-300" id="option-modal-content">
             <button onclick="closeOptionModal()" class="absolute top-4 right-4 text-[#0A1D37] hover:text-[#D4AF37]">
                 <i data-lucide="x" class="w-6 h-6"></i>
@@ -1373,13 +1372,15 @@ GRILL MASTERS HYGENIC MENU!
             <div class="text-[#D4AF37] flex justify-center mb-2">
                 <i data-lucide="award" class="w-8 h-8"></i>
             </div>
-            <h3 id="option-dish-title" class="font-cinzel text-xl text-[#0A1D37] font-bold tracking-wider mb-2">Select Style</h3>
-            <p class="font-sans-alt text-[10px] text-[#0A1D37]/60 mb-6 uppercase tracking-widest">Customize your royal experience</p>
-            <div id="option-buttons-container" class="space-y-3 font-sans-alt mb-2"></div>
+            <h3 id="option-dish-title" class="font-cinzel text-xl text-[#0A1D37] font-bold tracking-wider mb-2">Select Your Style</h3>
+            <p class="font-sans-alt text-xs text-[#0A1D37]/60 mb-6 uppercase tracking-widest">Customize your royal culinary experience</p>
+            <div id="option-buttons-container" class="space-y-3 font-sans-alt mb-2">
+                <!-- Dynamic Option Selection Buttons Go Here -->
+            </div>
         </div>
     </div>
 
-    <!-- Royal Feedback Chamber Section -->
+    <!-- Feedback Chamber Section -->
     <section class="w-full bg-gradient-to-b from-[#0A1D37] to-[#050D1B] text-[#FAF6F0] py-12 px-6 md:px-12 border-t-4 border-[#D4AF37]">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-8">
@@ -1447,7 +1448,7 @@ GRILL MASTERS HYGENIC MENU!
         </div>
     </section>
 
-    <!-- Dispatched Success Alert Popup modal -->
+    <!-- Modal 2: Action Trigger Status/Prompt -->
     <div id="status-modal" class="fixed inset-0 bg-[#0A1D37]/80 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition duration-300">
         <div class="bg-[#FAF6F0] border-2 border-[#D4AF37] p-8 rounded-2xl max-w-sm w-full text-center shadow-2xl relative">
             <div class="text-[#0B3C20] flex justify-center mb-4">
@@ -1461,13 +1462,13 @@ GRILL MASTERS HYGENIC MENU!
         </div>
     </div>
 
-    <!-- Firebase Compat Modules Import Scripts -->
+    <!-- Firebase Compat Modules Core Script Tags (Dynamic & Stable) -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // AAPKA ACCURATE FIREBASE CONFIGURATION BOX
+        // CONFIG MASTER CHAABI (KEYS INTEGRATION)
         const firebaseConfig = {
           apiKey: "AIzaSyCR72F9nFf8awxsBJG11xO7mHNGIdiXcpE",
           authDomain: "menu-5e048.firebaseapp.com",
@@ -1488,7 +1489,7 @@ GRILL MASTERS HYGENIC MENU!
         let userObj = null;
         let ordersUnsubscribe = null;
 
-        // Anonymous login trigger to authenticate session securely
+        // Anonymous login handling
         function authenticateUser() {
             auth.signInAnonymously()
                 .then(userCredential => {
@@ -1508,205 +1509,7 @@ GRILL MASTERS HYGENIC MENU!
             }
         });
 
-        // ----------------- AUTOMATIC CLICK AND CHOOSE CART LOGIC -----------------
-        function initInteractiveMenu() {
-            // Find all item list container divs
-            const itemRows = document.querySelectorAll('div.flex.justify-between.items-center');
-            itemRows.forEach(row => {
-                const priceSpans = row.querySelectorAll('span[id^="price-"]');
-                if (priceSpans.length > 0) {
-                    row.classList.add('cursor-pointer', 'hover:bg-[#0B3C20]/5', 'active:scale-[0.98]', 'transition-all', 'duration-150', 'px-2', 'py-1.5', 'rounded-lg');
-                    
-                    row.addEventListener('click', (e) => {
-                        // Avoid triggering modal clicks on target actions (buttons, sliders)
-                        if (e.target.closest('button') || e.target.closest('input')) return;
-                        
-                        // Extract Item Name cleanly
-                        const nameEl = row.querySelector('span:first-child');
-                        if (!nameEl) return;
-                        const dishName = nameEl.textContent.replace(/★/g, '').trim();
-
-                        if (priceSpans.length === 1) {
-                            // Add single variant item directly
-                            const span = priceSpans[0];
-                            addToCart(dishName, parseFloat(span.innerText), "Standard", span.id);
-                        } else if (priceSpans.length > 1) {
-                            // Prompt bottom selection sheet
-                            openOptionSelector(dishName, priceSpans);
-                        }
-                    });
-                }
-            });
-        }
-
-        function parseOptionType(priceId) {
-            if (priceId.endsWith('_regular') || priceId.endsWith('_reg')) return "Regular";
-            if (priceId.endsWith('_medium')) return "Medium";
-            if (priceId.endsWith('_wheat')) return "Whole Wheat";
-            if (priceId.endsWith('_baked')) return "Baked";
-            if (priceId.endsWith('_dry')) return "Dry";
-            if (priceId.endsWith('_gravy')) return "Gravy";
-            return "Standard";
-        }
-
-        function openOptionSelector(dishName, priceSpans) {
-            const modal = document.getElementById('option-selector-modal');
-            const content = document.getElementById('option-modal-content');
-            const title = document.getElementById('option-dish-title');
-            const container = document.getElementById('option-buttons-container');
-
-            title.innerText = dishName;
-            container.innerHTML = "";
-
-            priceSpans.forEach(span => {
-                const price = parseFloat(span.innerText);
-                const optionLabel = parseOptionType(span.id);
-                
-                const btn = document.createElement('button');
-                btn.className = "w-full py-3 px-5 bg-white hover:bg-[#0B3C20] hover:text-white border-2 border-[#D4AF37]/40 rounded-xl flex justify-between items-center font-semibold text-xs tracking-wider transition-all duration-200 text-[#0A1D37] shadow-sm";
-                btn.innerHTML = `
-                    <span>${optionLabel}</span>
-                    <span class="font-sans-alt text-sm">₹${price}</span>`;
-                btn.onclick = () => {
-                    addToCart(dishName, price, optionLabel, span.id);
-                    closeOptionSelector();
-                };
-                container.appendChild(btn);
-            });
-
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            content.classList.remove('translate-y-full');
-            if (window.innerWidth < 640) {
-                content.classList.add('translate-y-0');
-            }
-        }
-
-        function closeOptionSelector() {
-            document.getElementById('option-modal-content').classList.add('translate-y-full');
-            document.getElementById('option-selector-modal').classList.add('opacity-0', 'pointer-events-none');
-        }
-        window.closeOptionModal = closeOptionSelector;
-
-        // Toast notifications rather than annoying popups
-        function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50 bg-[#0B3C20] border-2 border-[#D4AF37] text-[#FAF6F0] px-6 py-3 rounded-full shadow-2xl flex items-center gap-2.5 font-sans-alt text-[10px] tracking-wider uppercase font-bold transition-all duration-500 opacity-0 translate-y-4';
-            toast.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i> <span>${message}</span>`;
-            document.body.appendChild(toast);
-            lucide.createIcons();
-
-            setTimeout(() => {
-                toast.classList.remove('opacity-0', 'translate-y-4');
-                toast.classList.add('translate-y-0');
-            }, 50);
-
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-4');
-                setTimeout(() => toast.remove(), 500);
-            }, 2300);
-        }
-
-        // Cart State Modification
-        function addToCart(name, price, option, elementId) {
-            const existingIndex = cart.findIndex(item => item.elementId === elementId);
-            if (existingIndex > -1) {
-                cart[existingIndex].quantity += 1;
-            } else {
-                cart.push({
-                    id: 'cart-' + Date.now(),
-                    name: name,
-                    price: price,
-                    option: option,
-                    quantity: 1,
-                    elementId: elementId
-                });
-            }
-            playASMRFlipSound();
-            renderCartItems();
-            updateCartBadge();
-            showToast(`Added ${name} to your Royal feast!`);
-        }
-
-        function updateCartQuantity(cartId, delta) {
-            const index = cart.findIndex(item => item.id === cartId);
-            if (index > -1) {
-                cart[index].quantity += delta;
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
-                renderCartItems();
-                updateCartBadge();
-            }
-        }
-
-        function updateCartBadge() {
-            const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
-            const badge = document.getElementById('cart-count-badge');
-            
-            if (totalCount > 0) {
-                badge.innerText = totalCount;
-                badge.classList.remove('scale-0');
-                badge.classList.add('scale-100');
-            } else {
-                badge.classList.remove('scale-100');
-                badge.classList.add('scale-0');
-            }
-        }
-
-        function getCartTotal() {
-            // Live price dynamic calculations mapped matching active sheet values!
-            return cart.reduce((total, item) => {
-                const domEl = document.getElementById(item.elementId);
-                const currentPrice = domEl ? parseFloat(domEl.innerText) : item.price;
-                return total + (currentPrice * item.quantity);
-            }, 0);
-        }
-
-        function renderCartItems() {
-            const container = document.getElementById('cart-items-container');
-            const totalDisplay = document.getElementById('cart-total-price');
-            
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center text-slate-400 py-12 space-y-3">
-                        <i data-lucide="shopping-bag" class="w-12 h-12 text-[#D4AF37]/50"></i>
-                        <p class="font-sans-alt text-xs uppercase tracking-widest text-[#0A1D37]/60 font-semibold">Your selection is empty</p>
-                    </div>`;
-                totalDisplay.innerText = "₹0";
-                lucide.createIcons();
-                return;
-            }
-
-            let html = `<div class="space-y-3 font-sans-alt text-slate-900">`;
-            cart.forEach(item => {
-                const domEl = document.getElementById(item.elementId);
-                const livePrice = domEl ? parseFloat(domEl.innerText) : item.price;
-                const lineTotal = livePrice * item.quantity;
-
-                html += `
-                    <div class="bg-white p-3 rounded-xl border border-[#D4AF37]/20 shadow-sm flex justify-between items-center gap-3">
-                        <div>
-                            <h4 class="font-bold text-xs text-[#0A1D37]">${item.name}</h4>
-                            <span class="text-[9px] px-2 py-0.5 mt-1 inline-block bg-[#0B3C20]/10 text-[#0B3C20] rounded-full font-bold uppercase tracking-wider">${item.option}</span>
-                            <p class="text-[10px] text-slate-500 mt-1">₹${livePrice} each</p>
-                        </div>
-                        <div class="flex flex-col items-end gap-1 shrink-0">
-                            <span class="font-bold text-xs text-[#0B3C20]">₹${lineTotal}</span>
-                            <div class="flex items-center gap-1.5 bg-[#FAF6F0] rounded-lg border border-slate-200 p-1">
-                                <button onclick="updateCartQuantity('${item.id}', -1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="minus" class="w-3 h-3"></i></button>
-                                <span class="text-xs w-4 text-center font-bold text-[#0A1D37]">${item.quantity}</span>
-                                <button onclick="updateCartQuantity('${item.id}', 1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="plus" class="w-3 h-3"></i></button>
-                            </div>
-                        </div>
-                    </div>`;
-            });
-            html += `</div>`;
-            container.innerHTML = html;
-            totalDisplay.innerText = "₹" + getCartTotal();
-            lucide.createIcons();
-        }
-
-        // ----------------- FIRESTORE REAL-TIME PROGRESS TRACKER -----------------
+        // Setup real-time listener for Active Table orders progress (Rule 1 & Rule 2 compliance)
         window.setupRealtimeOrdersListener = function() {
             const tableNumInput = document.getElementById('cart-table-number');
             const tableNum = tableNumInput ? tableNumInput.value.trim() : "";
@@ -1724,7 +1527,7 @@ GRILL MASTERS HYGENIC MENU!
 
             if (ordersUnsubscribe) ordersUnsubscribe();
 
-            // Direct snapshot stream listener onto targeted simplified firestore path
+            // Synced Direct clean path listener to make sure security rules match perfectly
             ordersUnsubscribe = db.collection("live_orders").orderBy("timestamp", "desc")
                 .onSnapshot((snapshot) => {
                     let fetchedOrders = [];
@@ -1732,7 +1535,7 @@ GRILL MASTERS HYGENIC MENU!
                         fetchedOrders.push({ id: doc.id, ...doc.data() });
                     });
 
-                    // filter orders in JS memory to avoid database index compilation errors
+                    // JS client memory filters to avoid Firestore indexes compilation
                     const userTableOrders = fetchedOrders
                         .filter(order => String(order.tableNumber) === String(tableNum));
 
@@ -1743,26 +1546,26 @@ GRILL MASTERS HYGENIC MENU!
                             orderListEl.innerHTML = userTableOrders.map(order => {
                                 let badgeColor = "text-amber-600 bg-amber-50 border-amber-200";
                                 if (order.status === "Preparing") badgeColor = "text-blue-600 bg-blue-50 border-blue-200 animate-pulse";
-                                if (order.status === "Served") badgeColor = "text-emerald-600 bg-emerald-50 border-emerald-200";
+                                if (order.status === "Served") badgeColor = "text-purple-600 bg-purple-50 border-purple-200";
                                 if (order.status === "Completed") badgeColor = "text-slate-600 bg-slate-50 border-slate-200";
 
                                 return `
-                                    <div class="flex justify-between items-center p-2 bg-white rounded-lg border border-slate-200/60 shadow-sm text-xs">
+                                    <div class="flex justify-between items-center p-2.5 bg-white rounded-lg border border-slate-200/60 shadow-sm text-xs">
                                         <div class="flex flex-col">
                                             <span class="font-bold text-[#0A1D37]">Order #${order.id.slice(-4).toUpperCase()}</span>
-                                            <span class="text-[9px] text-slate-400 font-sans-alt">Total Bill • ₹${order.grandTotal}</span>
+                                            <span class="text-[9px] text-slate-400 font-sans-alt">Total Price • ₹${order.grandTotal}</span>
                                         </div>
                                         <span class="px-2 py-0.5 rounded-full border text-[8px] font-bold tracking-wider uppercase ${badgeColor}">
-                                            ${order.status}
+                                            ${order.status || 'Pending'}
                                         </span>
                                     </div>`;
                             }).join('');
                         }
                     }
-                }, error => console.error("Firestore progress tracker blocked:", error));
+                }, error => console.error("Progress stream temporarily offline:", error));
         };
 
-        // Network Order Dispatch method
+        // Realtime Order Checkout Dispatch
         function placeOrder() {
             const tableInput = document.getElementById('cart-table-number');
             const instructionsInput = document.getElementById('cart-special-instructions');
@@ -1827,12 +1630,196 @@ GRILL MASTERS HYGENIC MENU!
                 })
                 .finally(() => {
                     placeOrderBtn.disabled = false;
-                    placeOrderBtn.innerHTML = `<i data-lucide="crown" class="w-4 h-4"></i> Send Order to Kitchen`;
+                    placeOrderBtn.innerHTML = `<i data-lucide="crown" class="w-4 h-4"></i> Place Order From Table`;
                     lucide.createIcons();
                 });
         }
+    </script>
 
-        // Side Panels Drawer slide actions
+    <script>
+        // App Core State
+        let cart = [];
+
+        // Dynamic click attachments onto dish nodes (Automatic Smart Listener)
+        function initInteractiveMenu() {
+            // Find all price spans on the page
+            const priceSpans = document.querySelectorAll('span[id^="price-"]');
+            const rows = new Set();
+            priceSpans.forEach(span => {
+                const row = span.closest('.flex.justify-between.items-center');
+                if (row) rows.add(row);
+            });
+
+            rows.forEach(row => {
+                if (row.dataset.menuBound) return;
+                row.dataset.menuBound = "true";
+                
+                row.classList.add('cursor-pointer', 'hover:bg-[#0B3C20]/5', 'active:scale-[0.98]', 'transition-all', 'duration-150', 'px-2', 'py-1.5', 'rounded-lg');
+                
+                row.addEventListener('click', (e) => {
+                    if (e.target.closest('button') || e.target.closest('input')) return;
+                    
+                    const nameEl = row.querySelector('span:first-child');
+                    if (!nameEl) return;
+                    const dishName = nameEl.textContent.replace(/★/g, '').trim();
+
+                    const rowPrices = row.querySelectorAll('span[id^="price-"]');
+                    if (rowPrices.length === 1) {
+                        const span = rowPrices[0];
+                        addToCart(dishName, parseFloat(span.innerText), "Standard", span.id);
+                    } else if (rowPrices.length > 1) {
+                        openOptionSelector(dishName, rowPrices);
+                    }
+                });
+            });
+        }
+
+        function parseOptionType(priceId) {
+            if (priceId.endsWith('_regular') || priceId.endsWith('_reg')) return "Regular";
+            if (priceId.endsWith('_medium')) return "Medium";
+            if (priceId.endsWith('_wheat')) return "Whole Wheat";
+            if (priceId.endsWith('_baked')) return "Baked";
+            if (priceId.endsWith('_dry')) return "Dry";
+            if (priceId.endsWith('_gravy')) return "Gravy";
+            return "Standard";
+        }
+
+        function openOptionSelector(dishName, priceSpans) {
+            const modal = document.getElementById('option-selector-modal');
+            const content = document.getElementById('option-modal-content');
+            const title = document.getElementById('option-dish-title');
+            const container = document.getElementById('option-buttons-container');
+
+            title.innerText = dishName;
+            container.innerHTML = "";
+
+            priceSpans.forEach(span => {
+                const price = parseFloat(span.innerText);
+                const optionLabel = parseOptionType(span.id);
+                
+                const btn = document.createElement('button');
+                btn.className = "w-full py-3 px-5 bg-white hover:bg-[#0B3C20] hover:text-white border-2 border-[#D4AF37]/40 rounded-xl flex justify-between items-center font-semibold text-xs tracking-wider transition-all duration-200 text-[#0A1D37] shadow-sm";
+                btn.innerHTML = `
+                    <span>${optionLabel}</span>
+                    <span class="font-sans-alt text-sm">₹${price}</span>`;
+                btn.onclick = () => {
+                    addToCart(dishName, price, optionLabel, span.id);
+                    closeOptionSelector();
+                };
+                container.appendChild(btn);
+            });
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('translate-y-full');
+            if (window.innerWidth < 640) {
+                content.classList.add('translate-y-0');
+            }
+        }
+
+        function closeOptionSelector() {
+            document.getElementById('option-modal-content').classList.add('translate-y-full');
+            document.getElementById('option-selector-modal').classList.add('opacity-0', 'pointer-events-none');
+        }
+        window.closeOptionModal = closeOptionSelector;
+
+        function addToCart(name, price, option, elementId) {
+            const existingIndex = cart.findIndex(item => item.elementId === elementId);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: 'cart-' + Date.now(),
+                    name: name,
+                    price: price,
+                    option: option,
+                    quantity: 1,
+                    elementId: elementId
+                });
+            }
+            playASMRFlipSound();
+            renderCartItems();
+            updateCartBadge();
+            showToast(`Added ${name} to your Royal feast!`);
+        }
+
+        function updateCartQuantity(cartId, delta) {
+            const index = cart.findIndex(item => item.id === cartId);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+                renderCartItems();
+                updateCartBadge();
+            }
+        }
+
+        function updateCartBadge() {
+            const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
+            const badge = document.getElementById('cart-count-badge');
+            
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('scale-0');
+                badge.classList.add('scale-100');
+            } else {
+                badge.classList.remove('scale-100');
+                badge.classList.add('scale-0');
+            }
+        }
+
+        function getCartTotal() {
+            return cart.reduce((total, item) => {
+                const domEl = document.getElementById(item.elementId);
+                const currentPrice = domEl ? parseFloat(domEl.innerText) : item.price;
+                return total + (currentPrice * item.quantity);
+            }, 0);
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            const totalDisplay = document.getElementById('cart-total-price');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-slate-400 py-12 space-y-3">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 text-[#D4AF37]/50"></i>
+                        <p class="font-sans-alt text-xs uppercase tracking-widest text-[#0A1D37]/60 font-semibold">Your selection is empty</p>
+                    </div>`;
+                totalDisplay.innerText = "₹0";
+                lucide.createIcons();
+                return;
+            }
+
+            let html = `<div class="space-y-3 font-sans-alt text-slate-900">`;
+            cart.forEach(item => {
+                const domEl = document.getElementById(item.elementId);
+                const livePrice = domEl ? parseFloat(domEl.innerText) : item.price;
+                const lineTotal = livePrice * item.quantity;
+
+                html += `
+                    <div class="bg-white p-3 rounded-xl border border-[#D4AF37]/20 shadow-sm flex justify-between items-center gap-3">
+                        <div>
+                            <h4 class="font-bold text-xs text-[#0A1D37]">${item.name}</h4>
+                            <span class="text-[9px] px-2 py-0.5 mt-1 inline-block bg-[#0B3C20]/10 text-[#0B3C20] rounded-full font-bold uppercase tracking-wider">${item.option}</span>
+                            <p class="text-[10px] text-slate-500 mt-1">₹${livePrice} each</p>
+                        </div>
+                        <div class="flex flex-col items-end gap-1 shrink-0">
+                            <span class="font-bold text-xs text-[#0B3C20]">₹${lineTotal}</span>
+                            <div class="flex items-center gap-1.5 bg-[#FAF6F0] rounded-lg border border-slate-200 p-1">
+                                <button onclick="updateCartQuantity('${item.id}', -1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                                <span class="text-xs w-4 text-center font-bold text-[#0A1D37]">${item.quantity}</span>
+                                <button onclick="updateCartQuantity('${item.id}', 1)" class="w-5 h-5 bg-white rounded flex items-center justify-center text-slate-600 shadow-sm"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+            totalDisplay.innerText = "₹" + getCartTotal();
+            lucide.createIcons();
+        }
+
         function openCart() {
             document.getElementById('cart-drawer').classList.remove('translate-x-full');
             renderCartItems();
@@ -1860,12 +1847,11 @@ GRILL MASTERS HYGENIC MENU!
                 const rows = csvData.split("\n");
                 
                 rows.forEach(row => {
-                    const cleanRow = row.replace(/"/g, "");
-                    const cols = cleanRow.split(",");
-                    if (cols.length >= 2) {
-                        const targetSpan = document.getElementById(`price-${cols[0].trim()}`);
-                        if (targetSpan && !isNaN(cols[1].trim())) {
-                            targetSpan.innerText = cols[1].trim();
+                    const cleanRow = row.replace(/"/g, "").split(",");
+                    if (cleanRow.length >= 2) {
+                        const targetSpan = document.getElementById(`price-${cleanRow[0].trim()}`);
+                        if (targetSpan && !isNaN(cleanRow[1].trim())) {
+                            targetSpan.innerText = cleanRow[1].trim();
                         }
                     }
                 });
