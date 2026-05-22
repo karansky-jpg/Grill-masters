@@ -58,7 +58,7 @@ KARAN DIGITAL MENU AGENCY
                 return;
             }
 
-            // Play clean ring sound on incoming items packet add event
+            // Play clean ring sound on incoming items added
             if (!firstLoad && snapshot.docChanges().some(change => change.type === "added")) {
                 document.getElementById("bell-sound").play().catch(e => console.log("Sound enabled."));
             }
