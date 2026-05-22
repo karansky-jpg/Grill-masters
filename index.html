@@ -506,22 +506,22 @@
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium text-sm">Illeagle Burger</span>
                                 <div class="flex gap-10 text-sm font-semibold">
-                                    <span class="w-10 text-center text-[#0B3C20]">₹<span id="price-illeagle_burger_reg">130</span></span>
-                                    <span class="w-12 text-center text-[#0B3C20]">₹<span id="price-illeagle_burger_wheat">140</span></span>
+                                    <span class="w-10 text-center text-[#0A1D37]">₹<span id="price-illeagle_burger_reg">130</span></span>
+                                    <span class="w-12 text-center text-[#0A1D37]">₹<span id="price-illeagle_burger_wheat">140</span></span>
                                 </div>
                             </div>
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium text-sm flex items-center gap-1">Grilled Chicken Burger <span class="text-[#FFB302]">★</span></span>
                                 <div class="flex gap-10 text-sm font-semibold">
-                                    <span class="w-10 text-center text-[#0B3C20]">₹<span id="price-grilled_chicken_burger_reg">150</span></span>
-                                    <span class="w-12 text-center text-[#0B3C20]">₹<span id="price-grilled_chicken_burger_wheat">160</span></span>
+                                    <span class="w-10 text-center text-[#0A1D37]">₹<span id="price-grilled_chicken_burger_reg">150</span></span>
+                                    <span class="w-12 text-center text-[#0A1D37]">₹<span id="price-grilled_chicken_burger_wheat">160</span></span>
                                 </div>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="font-medium text-sm">Chicken Mountain Burger</span>
                                 <div class="flex gap-10 text-sm font-semibold">
-                                    <span class="w-10 text-center text-[#0B3C20]">₹<span id="price-chicken_mountain_burger_reg">170</span></span>
-                                    <span class="w-12 text-center text-[#0B3C20]">₹<span id="price-chicken_mountain_burger_wheat">180</span></span>
+                                    <span class="w-10 text-center text-[#0A1D37]">₹<span id="price-chicken_mountain_burger_reg">170</span></span>
+                                    <span class="w-12 text-center text-[#0A1D37]">₹<span id="price-chicken_mountain_burger_wheat">180</span></span>
                                 </div>
                             </div>
                         </div>
@@ -1212,7 +1212,7 @@
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium">Iced Latte</span>
                                 <span class="font-bold text-[#0B3C20]">₹<span id="price-iced_latte">140</span></span>
-                            /div>
+                            </div>
                             <div class="flex justify-between items-center border-b border-[#0B3C20]/5 pb-1">
                                 <span class="font-medium">Irish Cold Coffee</span>
                                 <span class="font-bold text-[#0B3C20]">₹<span id="price-irish_cold_coffee">140</span></span>
@@ -1442,7 +1442,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // Clean Config Initializer
+        // Project Firebase Config
         const firebaseConfig = {
           apiKey: "AIzaSyCR72F9nFf8awxsBJG11xO7mHNGIdiXcpE",
           authDomain: "menu-5e048.firebaseapp.com",
@@ -1452,22 +1452,25 @@
           appId: "1:429776931303:web:688dab79bd2753cc0c9542"
         };
 
-        firebase.initializeApp(firebaseConfig);
+        // Firebase Initialization
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
         const auth = firebase.auth();
         const db = firebase.firestore();
 
         let userObj = null;
         let ordersUnsubscribe = null;
 
-        // Anonymous Auth Login trigger
+        // Anonymous login handling
         function authenticateUser() {
             auth.signInAnonymously()
                 .then(userCredential => {
                     userObj = userCredential.user;
-                    console.log("Authenticated Table UID:", userObj.uid);
+                    console.log("Logged in with Table UID:", userObj.uid);
                     setupRealtimeOrdersListener();
                 })
-                .catch(error => console.error("Anonymous authentication error:", error));
+                .catch(error => console.error("Authentication issue:", error));
         }
 
         auth.onAuthStateChanged((user) => {
@@ -1479,7 +1482,7 @@
             }
         });
 
-        // Setup Real-time Orders Listener (Optimized Simple Path)
+        // Setup live listener for dynamic tables
         window.setupRealtimeOrdersListener = function() {
             const tableNumInput = document.getElementById('cart-table-number');
             const tableNum = tableNumInput ? tableNumInput.value.trim() : "";
@@ -1497,7 +1500,7 @@
 
             if (ordersUnsubscribe) ordersUnsubscribe();
 
-            // Direct Clean Collection query to map easily with standard Security rules
+            // Synced direct path collection listener
             ordersUnsubscribe = db.collection("live_orders")
                 .onSnapshot((snapshot) => {
                     let fetchedOrders = [];
@@ -1505,7 +1508,7 @@
                         fetchedOrders.push({ id: doc.id, ...doc.data() });
                     });
 
-                    // JS memory filters for fast render execution
+                    // Live in-memory sort/filter by table number
                     const userTableOrders = fetchedOrders
                         .filter(order => String(order.tableNumber) === String(tableNum));
 
@@ -1532,20 +1535,19 @@
                             }).join('');
                         }
                     }
-                }, error => console.error("Snapshot read error:", error));
+                }, error => console.error("Firestore sync skipped:", error));
         };
 
-        // Complete Checkout and Save Order (Simplified Secure Payload)
+        // Realtime Order Placement
         window.executeOrderPlacement = async function(tableNum, cartItems, grandTotal, notes) {
             if (!userObj) {
-                showToast("Re-authenticating network connection...");
                 authenticateUser();
                 return;
             }
 
             const placeOrderBtn = document.getElementById('btn-place-order');
             placeOrderBtn.disabled = true;
-            placeOrderBtn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin text-[#0A1D37]"></i> Compiling Feast...`;
+            placeOrderBtn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin text-[#0A1D37]"></i> Transmitting Feast...`;
             lucide.createIcons();
 
             const itemsPayload = cartItems.map(item => ({
@@ -1575,7 +1577,7 @@
                             </div>
                             <h3 class="font-cinzel text-lg text-[#0A1D37] font-bold tracking-wider">Feast Confirmed!</h3>
                             <p class="font-sans-alt text-xs text-slate-500 max-w-xs leading-relaxed">
-                                Your royal order <span class="font-bold text-[#0B3C20]">#${docRef.id.slice(-5).toUpperCase()}</span> has been dispatched live to the kitchen.
+                                Your order <span class="font-bold text-[#0B3C20]">#${docRef.id.slice(-5).toUpperCase()}</span> has been processed successfully.
                             </p>
                             <button onclick="resetCartUI()" class="mt-4 px-6 py-2 bg-[#0B3C20] text-[#FAF6F0] rounded-xl font-semibold uppercase tracking-wider text-[10px]">
                                 Add More Items
@@ -1586,8 +1588,7 @@
                     setupRealtimeOrdersListener();
                 })
                 .catch(err => {
-                    console.error("Write error detail:", err);
-                    showToast("Network packet drop. Try placing order again.");
+                    console.error("Order writing failed:", err);
                 })
                 .finally(() => {
                     placeOrderBtn.disabled = false;
@@ -1598,14 +1599,8 @@
     </script>
 
     <script>
-        // Total Available Pages
-        const totalPages = 6;
-        let currentPage = 1;
-        let selectedRating = 5;
-        let isAudioOn = true;
-
+        // App settings
         let cart = [];
-        lucide.createIcons();
 
         function initInteractiveMenu() {
             const listRows = document.querySelectorAll('div.flex.justify-between.items-center');
